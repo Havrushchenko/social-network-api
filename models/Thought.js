@@ -18,8 +18,6 @@ const thoughtSchema = new Schema({
         unique: true,
         required: 'Username is Required',
     },
-    // reactions: {
-    // },
 },
     {
         toJSON: {
@@ -29,9 +27,9 @@ const thoughtSchema = new Schema({
     }
 );
 
-thoughtSchema.virtual('reactionCount').get(function () {
-    return this.reactions.length;
-});
+// thoughtSchema.virtual('reactionCount').get(function () {
+//     return this.reactions.length;
+// });
 
 const Thought = model('Thought', thoughtSchema);
 
