@@ -13,11 +13,6 @@ const userSchema = new Schema({
         required: 'Email is Required',
         match: [/.+@.+\..+/, 'Please enter a valid email address']
     },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (createdAtVal) => dateFormat(createdAtVal)
-    },
     thoughts: [
         {
           type: Schema.Types.ObjectId,
