@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
+const reactionSchema = require('./Reaction');
 
 const thoughtSchema = new Schema({
     thoughtText: {
@@ -18,6 +19,7 @@ const thoughtSchema = new Schema({
         unique: true,
         required: 'Username is Required',
     },
+    reactions: [reactionSchema],
 },
     {
         toJSON: {
@@ -28,9 +30,9 @@ const thoughtSchema = new Schema({
     }
 );
 
-// thoughtSchema.virtual('reactionCount').get(function () {
-//     return this.reactions.length;
-// });
+thoughtSchema.virtual('reactionCount').get(function () {
+    return this.reactions.length;
+});
 
 const Thought = model('Thought', thoughtSchema);
 
