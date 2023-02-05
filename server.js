@@ -11,7 +11,7 @@ app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Socialnetworkdb', {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 mongoose.set('debug', true);
